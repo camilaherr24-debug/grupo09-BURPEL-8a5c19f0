@@ -19,6 +19,7 @@ Aplicación web que usa la API que nos dio el profesor para mostrar un listado d
 
 ## Integrantes
 - Camila Herr
-- [Acá van tus compañeros]
+- Carla Carrizo
+- Maria Rosa Ramos
 
 Noviembre 2026
