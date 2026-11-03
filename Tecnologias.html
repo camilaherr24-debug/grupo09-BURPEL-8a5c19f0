@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologías - Proyecto Informático</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Proyecto Informático</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="tecnologias.html" class="activo">Tecnologías</a>
+            <a href="lenguajes.html">Lenguajes</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Catálogo de Tecnologías</h2>
+        <p>Listado de frameworks, bases de datos y herramientas obtenidas desde la API.</p>
+
+        <div class="buscador">
+            <input type="text" id="filtro-tecnologia" placeholder="Buscar tecnología...">
+        </div>
+
+        <div id="lista-tecnologias" class="tarjetas">
+            <!-- Acá se van a cargar dinámicamente los datos de la API -->
+            <p class="cargando">Cargando datos...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Proyecto Informático — UPSO</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
