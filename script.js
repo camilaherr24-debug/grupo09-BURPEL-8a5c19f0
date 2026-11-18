@@ -1,7 +1,7 @@
 console.log("✅ Proyecto cargado correctamente");
 
-// Dirección de tu servidor
-const API_URL = "http://127.0.0.1:5000/api";
+// Dirección relativa (no cambia si cambias de entorno)
+const API_URL = "/api";
 
 // Saber en qué página estamos
 const paginaActual = window.location.pathname;
@@ -113,9 +113,6 @@ function filtrarLista(texto, claseTarjeta) {
   const tarjetas = document.querySelectorAll(`.${claseTarjeta}`);
   tarjetas.forEach(tarjeta => {
     const textoTarjeta = tarjeta.textContent.toLowerCase();
-    if (textoTarjeta.includes(texto.toLowerCase())) {
-      tarjeta.style.display = "block";
-    } else {
-      tarjeta.style.display = "none";
-    }
+    tarjeta.style.display = textoTarjeta.includes(texto.toLowerCase()) ? "block" : "none";
   });
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Proyecto Informático</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Crear Cuenta</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="registro.html" class="activo">Registro</a>
+            <a href="login.html">Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tarjeta" style="max-width: 400px; margin: 0 auto;">
+            <h2>Completá tus datos</h2>
+            <form id="form-registro">
+                <label>Nombre completo:</label>
+                <input type="text" id="nombre" required>
+
+                <label>Correo electrónico:</label>
+                <input type="email" id="email" required>
+
+                <label>Contraseña:</label>
+                <input type="password" id="password" required>
+
+                <button type="submit" class="boton">Registrarme</button>
+            </form>
+            <p id="mensaje"></p>
+        </div>
+    </main>
+
+<script>
+document.getElementById('form-registro').addEventListener('submit', async e => {
+    e.preventDefault();
+    const datos = {
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+    };
+
+    const res = await fetch('/api/registro', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(datos)
+    });
+
+    const resultado = await res.json();
+    const mensaje = resultado.mensaje 
+        || (resultado.errores ? resultado.errores.join('\n') : resultado.error);
+    document.getElementById('mensaje').textContent = mensaje;
+    document.getElementById('mensaje').style.color = res.ok ? 'green' : 'red';
+    
+    if (res.ok) setTimeout(() => window.location.href = 'login.html', 1500);
+});
+</script>
+</body>
+</html>
