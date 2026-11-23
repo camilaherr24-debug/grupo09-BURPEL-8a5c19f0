@@ -11,7 +11,6 @@ def verificar_clave(clave_guardada: str, clave_ingresada: str) -> bool:
     """Compara la contraseña ingresada con la guardada"""
     return check_password_hash(clave_guardada, clave_ingresada)
 
-# 👇 Agregá estas dos funciones nuevas acá abajo
 
 def generar_token_jwt(usuario_id: int) -> str:
     """Crea un token JWT que dura 24 horas"""

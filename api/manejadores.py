@@ -1,4 +1,4 @@
-from flask import jsonify, request, send_from_directory
+from flask import jsonify, request
 import pymysql
 from pymysql.cursors import DictCursor
 from settings import BASE_DATOS, API_BASE_URL, CABECERAS_API
@@ -58,27 +58,6 @@ def validar_esquema(datos, esquema):
 # ============== REGISTRAR TODAS LAS RUTAS ==============
 def registrar_manejadores(app):
 
-    # --- Páginas HTML ---
-    @app.route("/")
-    def inicio():
-        return send_from_directory(".", "index.html")
-
-    @app.route("/registro")
-    def pagina_registro():
-        return send_from_directory(".", "registro.html")
-
-    @app.route("/login")
-    def pagina_login():
-        return send_from_directory(".", "login.html")
-
-    @app.route("/tecnologias")
-    def pagina_tecnologias():
-        return send_from_directory(".", "tecnologias.html")
-
-    @app.route("/lenguajes")
-    def pagina_lenguajes():
-        return send_from_directory(".", "lenguajes.html")
-
     # --- Registro ---
     @app.route("/api/registro", methods=["POST"])
     def registro():
@@ -121,9 +100,10 @@ def registrar_manejadores(app):
         db = conectar_base()
         cursor = db.cursor()
         cursor.execute(
-            "SELECT id, nombre, password_hash FROM usuarios WHERE email = %s",
-            (datos["email"],)
+            "INSERT INTO usuarios (nombre, email, password_hash) VALUES (%s, %s, %s)",
+            (datos["nombre"], datos["email"], clave_cod)
         )
+
         fila = cursor.fetchone()
         cursor.close()
         db.close()
