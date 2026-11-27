@@ -1,4 +1,6 @@
 # api/esquemas.py — Validación con JSON Schema
+import json
+from pathlib import Path
 
 ESQUEMA_REGISTRO = {
     "type": "object",
@@ -38,3 +40,13 @@ ESQUEMA_LOGIN = {
     "required": ["email", "password"],
     "additionalProperties": False
 }
+
+SCHEMAS_DIR = Path(__file__).resolve().parent.parent / "schemas"
+
+
+def cargar_esquema_json(nombre_archivo):
+    ruta = SCHEMAS_DIR / nombre_archivo
+    if not ruta.exists():
+        raise FileNotFoundError(f"No se encontró el esquema JSON: {ruta}")
+    with ruta.open("r", encoding="utf-8") as archivo:
+        return json.load(archivo)
