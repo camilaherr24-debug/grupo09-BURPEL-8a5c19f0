@@ -4,7 +4,7 @@ from pymysql.cursors import DictCursor
 from settings import BASE_DATOS, API_BASE_URL, CABECERAS_API
 from functools import wraps
 from api.servicios.servicio_token import codificar_clave, verificar_clave, generar_token_jwt, verificar_token_jwt
-from api.esquemas import ESQUEMA_REGISTRO, ESQUEMA_LOGIN
+from api.utils.esquemas import ESQUEMA_REGISTRO, ESQUEMA_LOGIN
 
 # ============== DECORADOR: PROTEGER RUTAS ==============
 def requiere_token(f):
