@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HabilidadLenguaje",
+  "type": "object",
+  "properties": {
+    "usuario_id": { "type": "integer" },
+    "lenguaje_id": { "type": "integer" },
+    "nivel": { "type": "string", "maxLength": 50 }
+  },
+  "required": ["usuario_id", "lenguaje_id"],
+  "additionalProperties": false
+}

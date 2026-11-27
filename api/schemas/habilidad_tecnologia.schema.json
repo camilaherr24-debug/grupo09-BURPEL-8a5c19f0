@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HabilidadTecnologia",
+  "type": "object",
+  "properties": {
+    "usuario_id": { "type": "integer" },
+    "tecnologia_id": { "type": "integer" },
+    "nivel": { "type": "string", "maxLength": 50 }
+  },
+  "required": ["usuario_id", "tecnologia_id"],
+  "additionalProperties": false
+}

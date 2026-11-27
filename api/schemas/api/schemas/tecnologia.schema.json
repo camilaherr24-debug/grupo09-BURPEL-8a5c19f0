@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tecnologia",
+  "type": "object",
+  "properties": {
+    "nombre": { "type": "string", "minLength": 2, "maxLength": 100 },
+    "descripcion": { "type": "string", "maxLength": 255 }
+  },
+  "required": ["nombre"],
+  "additionalProperties": false
+}

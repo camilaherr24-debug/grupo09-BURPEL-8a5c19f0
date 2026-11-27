@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lenguaje",
+  "type": "object",
+  "properties": {
+    "nombre": { "type": "string", "minLength": 2, "maxLength": 100 },
+    "nivel": { "type": "string", "maxLength": 50 }
+  },
+  "required": ["nombre"],
+  "additionalProperties": false
+}
